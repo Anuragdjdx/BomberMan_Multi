@@ -71,7 +71,7 @@ public class MapDestroyer : MonoBehaviour {
 		float distance = dy + dx;
 		distance = Mathf.Sqrt(distance);
 		int intDist = (int)distance;
-		Debug.Log("Distance p1 kya " + intDist);
+		//Debug.Log("Distance p1 kya " + intDist);
 
 
 
@@ -87,21 +87,33 @@ public class MapDestroyer : MonoBehaviour {
 		float distancep2 = dyp2 + dxp2;
 		distancep2 = Mathf.Sqrt(distancep2);
 		int intDistp2 = (int)distancep2;
-		Debug.Log("Distance  p2 kya " + intDistp2);
+		//Debug.Log("Distance  p2 kya " + intDistp2);
 
-		if (intDist <= 0  )
+	
+		Vector3Int cell2 = cell;
+		cell2 = Vector3Int.one;
+		Vector3 cell2vect = cell2;
+		
+		
+		//Debug.Log(cell + "Cell ki pos");
+
+		
+
+		if (intDist <= 0 )
 		{
-			player1.GetComponent<SpriteRenderer>().enabled = false;
-			Debug.Log("Player2 Win");
-			Invoke("player2win", 1.2f);
+
+
+			//player1.GetComponent<SpriteRenderer>().enabled = false;
+			//Debug.Log("Player2 Win");
+			//Invoke("player2win", 1.2f);
 		}
 
 
 		if (intDistp2 <= 0 )
 		{
-			player2.GetComponent<SpriteRenderer>().enabled = false;
-			Debug.Log("Player1 Win");
-			Invoke("player1win", 1.2f);
+			//player2.GetComponent<SpriteRenderer>().enabled = false;
+			//Debug.Log("Player1 Win");
+			//Invoke("player1win", 1.2f);
 		}
 
 
@@ -123,19 +135,11 @@ public class MapDestroyer : MonoBehaviour {
 
 		Vector3 pos = tilemap.GetCellCenterWorld(cell);
 		Instantiate(explosionPrefab, pos, Quaternion.identity);
-		Invoke("DestroyExplorionPrefabs", 2);
+		Invoke("DestroyExplorionPrefabs", .5f);
 		return true;
 	}
 
-	void player2win()
-	{
-		SceneManager.LoadScene("PLayer2_Win");
-	}
-
-	void player1win()
-	{
-		SceneManager.LoadScene("PLayer1_Win");
-	}
+	
 
 
 	void DestroyExplorionPrefabs() // To delete the Explotion Clone objects from Heirarchy
@@ -145,8 +149,8 @@ public class MapDestroyer : MonoBehaviour {
 		foreach (var item in Explosion)
 		{
 
-			Debug.Log("Hello");
 
+			
 
 			Destroy(item);
 

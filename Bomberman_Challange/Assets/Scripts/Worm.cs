@@ -117,7 +117,7 @@ public class Worm : MonoBehaviour
 
 		//To Change the direction of Worm;
 
-		Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+	//	Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
 		
 	}
 }
