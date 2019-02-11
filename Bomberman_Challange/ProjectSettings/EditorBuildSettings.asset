@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/PLayer1_Win.unity
     guid: 0ae0f75c6bafb9f4fbf581c5366d9700
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/bb4bed86987cd844099cc54d4708e980
+    guid: bb4bed86987cd844099cc54d4708e980
   - enabled: 1
     path: Assets/_Scenes/PLayer2_Win.unity
-    guid: bb4bed86987cd844099cc54d4708e980
+    guid: d409689fbfd2c05468564df1b5dfc51c
   m_configObjects: {}
