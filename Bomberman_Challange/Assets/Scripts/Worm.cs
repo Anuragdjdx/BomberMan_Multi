@@ -115,7 +115,7 @@ public class Worm : MonoBehaviour
 
 		return res;
     }
-	private void OnTriggerEnter2D(Collision2D col)
+	private void OnCollisionEnter2D(Collision2D col)
 	{
 		
 	
@@ -128,4 +128,6 @@ public class Worm : MonoBehaviour
 
 
 	}
+
+
 }

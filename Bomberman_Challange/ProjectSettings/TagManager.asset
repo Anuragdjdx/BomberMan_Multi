@@ -8,6 +8,7 @@ TagManager:
   - Explosion
   - Player1
   - Player2
+  - Bomb
   layers:
   - Default
   - TransparentFX

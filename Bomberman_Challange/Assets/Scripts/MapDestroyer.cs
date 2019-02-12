@@ -27,28 +27,59 @@ public class MapDestroyer : MonoBehaviour {
 		
 		Debug.Log("Ye postion kya hai ? " + tilemap.WorldToCell(worldPos));
 
-		ExplodeCell(originCell);
 
-		if (ExplodeCell(originCell + new Vector3Int(1, 0, 0)))
+		if (CheckPlyer_pow._range == false)
 		{
-			ExplodeCell(originCell + new Vector3Int(1, 0, 0));			
+			ExplodeCell(originCell);
 
+			if (ExplodeCell(originCell + new Vector3Int(1, 0, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(1, 0, 0));
+
+			}
+
+			if (ExplodeCell(originCell + new Vector3Int(0, 1, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(0, 1, 0));
+			}
+
+			if (ExplodeCell(originCell + new Vector3Int(-1, 0, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(-1, 0, 0));
+			}
+
+			if (ExplodeCell(originCell + new Vector3Int(0, -1, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(0, -1, 0));
+			}
 		}
-		
-		if (ExplodeCell(originCell + new Vector3Int(0, 1, 0)))
+		 else if (CheckPlyer_pow._range == true)
 		{
-			ExplodeCell(originCell + new Vector3Int(0, 1, 0));
+			ExplodeCell(originCell);
+
+			if (ExplodeCell(originCell + new Vector3Int(1, 0, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(2, 0, 0));
+
+			}
+
+			if (ExplodeCell(originCell + new Vector3Int(0, 1, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(0, 2, 0));
+			}
+
+			if (ExplodeCell(originCell + new Vector3Int(-1, 0, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(-2, 0, 0));
+			}
+
+			if (ExplodeCell(originCell + new Vector3Int(0, -1, 0)))
+			{
+				ExplodeCell(originCell + new Vector3Int(0, -2, 0));
+			}
 		}
-		
-		if (ExplodeCell(originCell + new Vector3Int(-1, 0, 0)))
-		{
-			ExplodeCell(originCell + new Vector3Int(-1, 0, 0));
-		}
-		
-		if (ExplodeCell(originCell + new Vector3Int(0, -1, 0)))
-		{
-			ExplodeCell(originCell + new Vector3Int(0, -1, 0));
-		}
+
+
 
 	}
 
@@ -58,6 +89,8 @@ public class MapDestroyer : MonoBehaviour {
 		player1 = GameObject.FindGameObjectWithTag("Player1");
 		player2 = GameObject.FindGameObjectWithTag("Player2");
 
+
+		#region Old Logic
 
 		//For Player 1
 		float celly = cell.y;
@@ -93,28 +126,10 @@ public class MapDestroyer : MonoBehaviour {
 		Vector3Int cell2 = cell;
 		cell2 = Vector3Int.one;
 		Vector3 cell2vect = cell2;
-		
-		
-		//Debug.Log(cell + "Cell ki pos");
 
-		
+		#endregion
 
-		if (intDist <= 0 )
-		{
-
-
-			//player1.GetComponent<SpriteRenderer>().enabled = false;
-			//Debug.Log("Player2 Win");
-			//Invoke("player2win", 1.2f);
-		}
-
-
-		if (intDistp2 <= 0 )
-		{
-			//player2.GetComponent<SpriteRenderer>().enabled = false;
-			//Debug.Log("Player1 Win");
-			//Invoke("player1win", 1.2f);
-		}
+	
 
 
 		if (tile == wallTile)

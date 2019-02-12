@@ -10,6 +10,8 @@ public class Move : MonoBehaviour
 	public static bool dead = false;
 	public static int life = 100;
 
+	public static bool spwanBomb;
+
 	public float speed_Player1, speed_Player2 = 3;
 
 	public GameObject Player1, Player2;
@@ -26,6 +28,7 @@ public class Move : MonoBehaviour
 		anim_p2 = Player2.GetComponent<Animator>();
 		dead = false;
 		life = 100;
+		spwanBomb = true;
 	}
 
 
@@ -34,24 +37,26 @@ public class Move : MonoBehaviour
 	// Update is called once per frame
 	public void BombSpwaner_Player1()
 	{
+		
 
-		Vector3 worldPos = Player1.transform.position;
-		Vector3Int cell = tilemap.WorldToCell(worldPos);
-		Vector3 cellCenterPos = tilemap.GetCellCenterWorld(cell);
-		Instantiate(bombPrefab, cellCenterPos, Quaternion.identity);
+			Vector3 worldPos = Player1.transform.position;
+			Vector3Int cell = tilemap.WorldToCell(worldPos);
+			Vector3 cellCenterPos = tilemap.GetCellCenterWorld(cell);
+			Instantiate(bombPrefab, cellCenterPos, Quaternion.identity);
+		
 
 	}
 
 
 	public void BombSpwaner_Player2()
 	{
-
+		
 		Vector3 worldPos = Player2.transform.position;
 		Vector3Int cell = tilemap.WorldToCell(worldPos);
 		Vector3 cellCenterPos = tilemap.GetCellCenterWorld(cell);
-
 		Instantiate(bombPrefab, cellCenterPos, Quaternion.identity);
 
+		
 	}
 
 	private void Update()
@@ -67,6 +72,9 @@ public class Move : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.LeftControl))
 		{
 			BombSpwaner_Player1();
+
+
+
 		}
 
 		if (Input.GetKeyDown(KeyCode.RightControl))
