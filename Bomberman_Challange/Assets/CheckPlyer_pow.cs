@@ -45,8 +45,8 @@ public class CheckPlyer_pow : MonoBehaviour
 			//player 2 can enter multiple bombs
 
 			Debug.Log("player 2 can enter multiple bombs");
-
-
+			Invoke("Player1_PowerUp", 1);
+			this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 		}
 	}
 

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
-
+using UnityEngine.SceneManagement;
 public class Worm : MonoBehaviour
 {
     public float speed = 0.02f;
@@ -115,18 +115,38 @@ public class Worm : MonoBehaviour
 
 		return res;
     }
-	private void OnCollisionEnter2D(Collision2D col)
+	
+	private void OnTriggerEnter2D(Collider2D col)
 	{
 		
 	
-		Debug.Log("Naam bata " + col.collider.name);
+		Debug.Log("Naam bata " + col.name);
 
-		if (col.collider.name == "Tilemap_Gameplay" || col.collider.name == "Tilemap_Background")
+		if (col.name == "Bomberman-P1")
 		{
 			
+			Invoke("player2win", 1);
+			GameObject.Find("Bomberman-P1").GetComponent<SpriteRenderer>().enabled = false;
+		}
+			
+		if	(col.name == "Bomberman-P2")
+		{
+			
+			Invoke("player1win", 1);
+			GameObject.Find("Bomberman-P2").GetComponent<SpriteRenderer>().enabled = false;
 		}
 
 
+	}
+
+	 void player2win()
+	{
+		SceneManager.LoadScene("PLayer2_Win");
+	}
+
+	 void player1win()
+	{
+		SceneManager.LoadScene("PLayer1_Win");
 	}
 
 

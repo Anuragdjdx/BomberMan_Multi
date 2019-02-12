@@ -10,7 +10,7 @@ public class CheckPlayer : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		Debug.Log("Kuch to triggert hua " + collision.name);
-		if (collision.name == "Bomberman-P1")
+		if (collision.name == "Bomberman-P1" )
 		{
 			GameObject.Find("Bomberman-P1").GetComponent<SpriteRenderer>().enabled = false;
 			Invoke("player2win", .4f);
@@ -22,14 +22,20 @@ public class CheckPlayer : MonoBehaviour
 			GameObject.Find("Bomberman-P2").GetComponent<SpriteRenderer>().enabled = false;
 			Invoke("player1win", .4f);
 		}
+
+		else if (true)
+		{
+			Destroy(GameObject.Find("Worm1"));
+			
+		}
 	}
 
-	void player2win()
+	public void player2win()
 	{
 		SceneManager.LoadScene("PLayer2_Win");
 	}
 
-	void player1win()
+	public 	void player1win()
 	{
 		SceneManager.LoadScene("PLayer1_Win");
 	}
