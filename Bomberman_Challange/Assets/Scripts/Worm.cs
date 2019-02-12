@@ -21,7 +21,10 @@ public class Worm : MonoBehaviour
 
 	MapDestroyer mapDestroy;
 
-    void Start() {
+	public List<int> res = new List<int>();
+
+	void Start()
+	{
         // Get Animation component, set default animation
         anim = GetComponent<Animator>();
         anim.SetInteger("Direction", 4);
@@ -32,7 +35,8 @@ public class Worm : MonoBehaviour
     }
 	
 
-    void FixedUpdate() {
+    void FixedUpdate()
+	{
 
         Vector2 pos = transform.position;
 
@@ -92,32 +96,36 @@ public class Worm : MonoBehaviour
 
     List<int> validDirections()
 	{
-        List<int> res = new List<int>();
+       
         Vector2 pos = transform.position;
         pos.x = Mathf.Round(pos.x);
         pos.y = Mathf.Round(pos.y);
 
-        if (!Block.getBlockAt(pos.x, pos.y+1)) // up
-            res.Add(0);
-		
-        if (!Block.getBlockAt(pos.x+1, pos.y)) // right
-            res.Add(1);
+		if (!Block.getBlockAt(pos.x, pos.y + 1)) // up
+			res.Add(0);
 
-        if (!Block.getBlockAt(pos.x, pos.y-1)) // down
-            res.Add(2);
+		if (!Block.getBlockAt(pos.x + 1, pos.y)) // right
+			res.Add(1);
 
-        if (!Block.getBlockAt(pos.x-1, pos.y)) // left
-            res.Add(3);
+		if (!Block.getBlockAt(pos.x, pos.y - 1)) // down
+			res.Add(2);
 
-        return res;
+		if (!Block.getBlockAt(pos.x - 1, pos.y)) // left
+			res.Add(3);
+
+		return res;
     }
-
-	void OnTriggerEnter2D(Collider2D col)
+	private void OnTriggerEnter2D(Collision2D col)
 	{
-
-		//To Change the direction of Worm;
-
-	//	Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
 		
+	
+		Debug.Log("Naam bata " + col.collider.name);
+
+		if (col.collider.name == "Tilemap_Gameplay" || col.collider.name == "Tilemap_Background")
+		{
+			
+		}
+
+
 	}
 }

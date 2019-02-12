@@ -1,0 +1,3 @@
+Player 1 : Use ASWD for Movement and Left control key to plant bomb.
+
+Player 2 : use Arrow keys for Movement and Right control key to plant bomb.
