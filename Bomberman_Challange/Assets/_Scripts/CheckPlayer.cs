@@ -12,15 +12,17 @@ public class CheckPlayer : MonoBehaviour
 		Debug.Log("Kuch to triggert hua " + collision.name);
 		if (collision.name == "Bomberman-P1" )
 		{
-			GameObject.Find("Bomberman-P1").GetComponent<SpriteRenderer>().enabled = false;
 			Invoke("player2win", .4f);
+			GameObject.Find("Bomberman-P1").GetComponent<SpriteRenderer>().enabled = false;
+			
 
 		}
 
 		else if (collision.name == "Bomberman-P2")
 		{
-			GameObject.Find("Bomberman-P2").GetComponent<SpriteRenderer>().enabled = false;
 			Invoke("player1win", .4f);
+			GameObject.Find("Bomberman-P2").GetComponent<SpriteRenderer>().enabled = false;
+			
 		}
 
 		else if (true)

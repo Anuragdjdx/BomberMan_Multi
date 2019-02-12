@@ -126,6 +126,7 @@ public class Worm : MonoBehaviour
 		{
 			
 			Invoke("player2win", 1);
+			Destroy(GameObject.Find("Bomberman-P1"));
 			GameObject.Find("Bomberman-P1").GetComponent<SpriteRenderer>().enabled = false;
 		}
 			
